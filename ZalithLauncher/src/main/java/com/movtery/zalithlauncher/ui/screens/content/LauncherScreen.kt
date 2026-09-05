@@ -373,15 +373,25 @@ private fun RightMenuContent(
         launchButton(
             Modifier
                 .fillMaxWidth()
+                .height(64.dp)
                 .constrainAs(launchButton) {
-                    bottom.linkTo(parent.bottom, margin = 8.dp)
+                    bottom.linkTo(parent.bottom, margin = 12.dp)
                 }
                 .padding(PaddingValues(horizontal = 12.dp)),
             {
                 onLaunchGame(null)
             },
             {
-                MarqueeText(text = stringResource(R.string.main_launch_game))
+                Icon(
+                    painter = painterResource(R.drawable.ic_play_arrow_filled),
+                    contentDescription = null,
+                    modifier = Modifier.size(28.dp)
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                MarqueeText(
+                    text = stringResource(R.string.main_launch_game),
+                    style = MaterialTheme.typography.titleMedium
+                )
             }
         )
     }
